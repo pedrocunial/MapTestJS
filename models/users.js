@@ -7,7 +7,7 @@ var userSchema = new Schema({
   userId  : {type: String, required:true},
   password: {type: String, required:true},
   email   : {type: String, required:true},
-  created : {type: Date,  default: Date.now },
+  created : {type: Date,   default: Date.now },
   isActive: Boolean
 });
 
