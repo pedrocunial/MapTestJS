@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 app.use(methodOverride('X-HTTP-Method-Override'));
 
 // Mongoose
-mongoose.connect("mongodb://localhost/map_test");
+mongoose.connect('mongodb://localhost/map_test');
 mongoose.connection.once('open', function() {
   app.listen(3000);
   console.log('listening to port 3000');
