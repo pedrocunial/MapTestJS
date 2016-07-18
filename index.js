@@ -16,6 +16,11 @@ app.use(methodOverride('X-HTTP-Method-Override'));
 // Mongoose
 mongoose.connect('mongodb://localhost/map_test');
 mongoose.connection.once('open', function() {
+
+  // Load models
+  app.models = require("./models/index");
+
+  console.log('listening to PORT 3000');
   app.listen(3000);
-  console.log('listening to port 3000');
+
 });
