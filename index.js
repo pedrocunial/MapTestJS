@@ -1,12 +1,13 @@
 // Dependencies
-var express        = require("express");
-var mongoose       = require("mongoose");
-var bodyParser     = require("body-parser");
-var methodOverride = require("method-override");
+var express        = require('express');
+var mongoose       = require('mongoose');
+var bodyParser     = require('body-parser');
+var methodOverride = require('method-override');
 
 // Express routing
 var app           = express();
 var serviceOrders = require("./routes/serviceOrders");
+var users         = require("./routers/user_routes");
 
 // Middleware
 app.use(bodyParser.urlencoded({extended: true}));
@@ -30,6 +31,7 @@ mongoose.connection.once("open", function() {
 
   // Routes
   app.use("/serviceorders", serviceOrders);
+  app.use("/users", users);
 
   console.log("Listening to PORT 3000");
   app.listen(3000);
