@@ -1,13 +1,13 @@
 var mongoose  = require('mongoose');
-var userSchema = mongoose.schema;
 
-//defines the users' mongoose Schema
 var userSchema = new mongoose.Schema({
-  username: {type: String, required:true, index:true},
-  password: {type: String, required:true},
-  email   : {type: String, required:true},
-  created : {type: Date,   default: Date.now },
-  isActive: Boolean
+  username:  { type: String, required: true, index: { unique: true } },
+  password:  { type: String, required: true },
+  email:     { type: String, required: true },
+  firstName: { type: String, required: true },
+  lastName:  { type: String, required: true },
+  created:   { type: Date, default: Date.now },
+  isActive:  { type: Boolean, default: true }
 });
-//Constructor
-var User = mongoose.model('User', userSchema);
+
+module.exports = mongoose.model('User', userSchema);

@@ -21,7 +21,7 @@ mongoose.connection.once('open', function() {
   // Load models
   app.models  = require("./models/index");
   //Use routes
-  app.use('/user', routes);
+  app.use('/', routes);
 
   app.listen(3000);
   console.log('listening to port 3000');
