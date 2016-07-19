@@ -1,4 +1,4 @@
 module.exports = {
-  serviceOrder: require("./ServiceOrder");
-  user:         require("./User"); 
+  serviceOrder: require("./ServiceOrder"),
+  user:         require("./User")
 };

@@ -1,8 +1,8 @@
 var mongoose = require("mongoose");
 
 var ClientSchema = new mongoose.Schema({
-  account: { type: String, required, true, index: { unique: true } },
-  cpf:           { type: String, required: true }
+  account: { type: String, required: true, index: { unique: true } },
+  cpf:           { type: String, required: true },
   name:          { type: String, required: true },
   type:          { type: String, required: true },
   phone:         { type: String, required: true },
@@ -19,9 +19,9 @@ var ClientSchema = new mongoose.Schema({
 });
 
 var ServiceOrderSchema = new mongoose.Schema({
-  number:             { type: number, required: true, index: { unique: true } },
+  number:             { type: Number, required: true, index: { unique: true } },
   createdAt:          { type: Date, default: Date.now },
-  scheduledTo:        { type: Date, required : true, min: Date.now },
+  scheduledTo:        { type: Date, required: true, min: Date.now },
   dayPeriod:          { type: String, required: true },
   status:             { type: String, required: true, default: "Open" },
   tvPackage:          { type: String, required: true},
