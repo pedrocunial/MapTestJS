@@ -3,14 +3,13 @@ var userSchema = mongoose.schema;
 
 //defines the users' mongoose Schema
 var userSchema = new Schema({
-  name    : {type: String, required:true},
-  userId  : {type: String, required:true},
+  username: {type: String, required:true, index:true},
   password: {type: String, required:true},
   email   : {type: String, required:true},
   created : {type: Date,   default: Date.now },
   isActive: Boolean
 });
-
+//Constructor
 var User = mongoose.model('User', userSchema);
 
 module.exports = User;
