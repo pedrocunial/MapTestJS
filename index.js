@@ -5,8 +5,8 @@ var express        = require('express');
 var mongoose       = require('mongoose');
 var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
-
-var routes = require("./routers/index");
+//Routes
+var routes = require("./routers/user_routes");
 
 var app = express();
 
