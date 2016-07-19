@@ -1,4 +1,4 @@
-var mongoose = require("mongoose");
+var mongoose      = require("mongoose");
 var AddressSchema = require("./Address").model("address").schema;
 
 var ClientSchema = new mongoose.Schema({
