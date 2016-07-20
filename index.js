@@ -7,7 +7,8 @@ var methodOverride = require('method-override');
 // Express routing
 var app           = express();
 var serviceOrders = require("./routes/serviceOrders");
-var users         = require("./routers/user_routes");
+var users         = require("./routes/users");
+var login         = require("./routes/login");
 
 // Middleware
 app.use(bodyParser.urlencoded({extended: true}));
@@ -32,6 +33,7 @@ mongoose.connection.once("open", function() {
   // Routes
   app.use("/serviceorders", serviceOrders);
   app.use("/users", users);
+  app.use("/login", login);
 
   console.log("Listening to PORT 3000");
   app.listen(3000);

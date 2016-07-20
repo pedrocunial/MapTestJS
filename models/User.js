@@ -4,9 +4,9 @@ var userSchema = new mongoose.Schema({
   username:  { type: String, required: true, index: { unique: true } },
   password:  { type: String, required: true },
   email:     { type: String, required: true },
-  firstName: { type: String, required: true },
-  lastName:  { type: String, required: true },
-  created:   { type: Date, default: Date.now },
+  firstname: { type: String, required: true },
+  lastname:  { type: String, required: true },
+  createdAt:   { type: Date, default: Date.now },
   isActive:  { type: Boolean, default: true }
 });
 
