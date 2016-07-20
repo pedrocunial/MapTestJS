@@ -13,7 +13,6 @@ router.post('/', function(req, res){
 
   // Service Order
   serviceOrder.number             = req.body.number;
-  serviceOrder.createdAt          = req.body.createdAt;
   serviceOrder.scheduledTo        = req.body.scheduledTo;
   serviceOrder.dayPeriod          = req.body.dayPeriod;
   serviceOrder.status             = req.body.status;
@@ -46,7 +45,53 @@ router.post('/', function(req, res){
     if(err) {
       return res.status(500).json({ "error": true, "message": err });
     } else {
-      return res.status(200).json({ "error": false, "message": "Service order created successfully." });
+      return res.sendStatus(201);
+    }
+  });
+
+});
+
+router.get("/:id", function(req, res){
+
+  var serviceOrderId = req.params.id;
+
+  ServiceOrder.findById(serviceOrderId, function(err, serviceOrder){
+      if(err) {
+        return res.status(500).json({ "error": true, "message": err });
+      } else {
+        if(!serviceOrder){
+          return res.sendStatus(404);
+        } else {
+          return res.status(200).json(serviceOrder);
+        }
+      }
+  });
+
+});
+
+router.put("/:id", function(req, res){
+
+  var serviceOrderId = req.params.id;
+
+  // Find service order
+  ServiceOrder.findById(serviceOrderId, function(err, serviceOrder){
+    if(err) {
+      return res.status(500).json({ "error": true, "message": err });
+    } else {
+      if(!serviceOrder){
+        return res.sendStatus(404);
+      } else {
+        // Update info
+        serviceOrder.status = req.body.status;
+        // Save updated info
+        serviceOrder.save(function(err){
+          if(err){
+            return res.status(500).json({ "error": true, "message": err });
+          } else {
+            return res.sendStatus(200);
+          }
+        });
+      }
     }
   });
 

@@ -11,7 +11,7 @@ router.post('/', function(req,res){
     if(err) {
       return res.status(500).json({ "error": true, "message": err });
     } else {
-      return res.status(201).json({ "error": false, "message": "User created successfully." });
+      return res.sendStatus(201);
     }
   });
 });

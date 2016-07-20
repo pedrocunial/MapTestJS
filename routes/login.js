@@ -13,9 +13,9 @@ router.post('/', function(req, res){
       return res.status(500).json({ "error": true, "message": err });
     } else {
       if(!user) {
-        return res.status(404).send(); // User not found
+        return res.sendStatus(404); // User not found
       } else {
-        return res.status(200).send(); // Ok
+        return res.sendStatus(200); // Ok
       }
     }
   });
