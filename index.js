@@ -11,7 +11,7 @@ var users         = require("./routes/users");
 var login         = require("./routes/login");
 
 // Defining our port for the cloud service
-var port = process.env.MAP_TEST_SERVICE_PORT || "";
+var port = process.env.PORT || 3000;
 
 // Middleware
 app.use(bodyParser.urlencoded({extended: true}));
@@ -27,8 +27,8 @@ app.use(function(req, res, next) {
 });
 
 // Mongoose
-// mongoose.connect("mongodb://localhost/map_test");
-mongoose.connect("mongodb://10.1.2.37:27017/map_test")
+mongoose.connect("mongodb://localhost/map_test");
+// mongoose.connect("mongodb://10.1.2.37:27017/map_test")
 mongoose.connection.once("open", function() {
 
   // Load models
@@ -40,8 +40,10 @@ mongoose.connection.once("open", function() {
   app.use("/login", login);
 
   // console.log("Listening to PORT " + port);
-  var listener  = app.listen(3000, function() {
-    console.log("listening on port " + listener.address().port);
-  });
 
+});
+
+// init
+app.listen(port, function() {
+  console.log("Process being hosted at: " + port);
 });
