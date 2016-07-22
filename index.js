@@ -10,6 +10,9 @@ var serviceOrders = require("./routes/serviceOrders");
 var users         = require("./routes/users");
 var login         = require("./routes/login");
 
+// Defining our port for the cloud service
+var port = process.env.MAP_TEST_SERVICE_PORT
+
 // Middleware
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
@@ -36,7 +39,7 @@ mongoose.connection.once("open", function() {
   app.use("/users", users);
   app.use("/login", login);
 
-  console.log("Listening to PORT 3000");
-  app.listen(3000);
+  console.log("Listening to PORT " + port);
+  app.listen(port);
 
 });
