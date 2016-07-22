@@ -39,7 +39,9 @@ mongoose.connection.once("open", function() {
   app.use("/users", users);
   app.use("/login", login);
 
-  console.log("Listening to PORT " + port);
-  app.listen(port);
+  // console.log("Listening to PORT " + port);
+  var listener  = app.listen(3000, function() {
+    console.log("listening on port " + listener.address().port);
+  });
 
 });
