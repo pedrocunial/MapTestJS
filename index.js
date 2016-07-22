@@ -1,8 +1,8 @@
 // Dependencies
-var express        = require('express');
-var mongoose       = require('mongoose');
-var bodyParser     = require('body-parser');
-var methodOverride = require('method-override');
+var express        = require("express");
+var mongoose       = require("mongoose");
+var bodyParser     = require("body-parser");
+var methodOverride = require("method-override");
 
 // Express routing
 var app           = express();
@@ -17,9 +17,9 @@ app.use(methodOverride("X-HTTP-Method-Override"));
 
 // CORS Support
 app.use(function(req, res, next) {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  res.header("Access-Control-Allow-Origin", '*');
+  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
+  res.header("Access-Control-Allow-Headers", "Content-Type");
   next();
 });
 
@@ -28,9 +28,9 @@ var uristring = process.env.MONGODB_URI || "mongodb://wilder:wilder123@ds027175.
 
 mongoose.connect(uristring, function (err, res) {
   if (err) {
-    console.log ('ERROR connecting to: ' + uristring + '. ' + err);
+    console.log ("Error connecting to: " + uristring + '. ' + err);
   } else {
-    console.log ('Succeeded connected to: ' + uristring);
+    console.log ("Connected to: " + uristring);
   }
 });
 
