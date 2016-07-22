@@ -11,7 +11,7 @@ var users         = require("./routes/users");
 var login         = require("./routes/login");
 
 // Defining our port for the cloud service
-var port = process.env.MAP_TEST_SERVICE_PORT
+var port = process.env.MAP_TEST_SERVICE_PORT || "";
 
 // Middleware
 app.use(bodyParser.urlencoded({extended: true}));
