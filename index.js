@@ -24,7 +24,8 @@ app.use(function(req, res, next) {
 });
 
 // Mongoose
-mongoose.connect("mongodb://localhost/map_test");
+// mongoose.connect("mongodb://localhost/map_test");
+mongoose.connect("mongodb://10.1.2.37:27017/map_test")
 mongoose.connection.once("open", function() {
 
   // Load models
