@@ -6,7 +6,7 @@ var userSchema = new mongoose.Schema({
   email:     { type: String, required: true },
   firstname: { type: String, required: true },
   lastname:  { type: String, required: true },
-  createdAt:   { type: Date, default: Date.now },
+  createdAt: { type: Date, default: Date.now },
   isActive:  { type: Boolean, default: true }
 });
 
