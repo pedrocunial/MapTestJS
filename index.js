@@ -23,9 +23,17 @@ app.use(function(req, res, next) {
   next();
 });
 
-// Mongoose
-// mongoose.connect("mongodb://localhost/map_test");
-mongoose.connect("mongodb://10.1.2.37:27017/map_test")
+// MongoDB Connection
+var uristring = process.env.MONGODB_URI || "mongodb://wilder:wilder123@ds027175.mlab.com:27175/zeustv";
+
+mongoose.connect(uristring, function (err, res) {
+  if (err) {
+    console.log ('ERROR connecting to: ' + uristring + '. ' + err);
+  } else {
+    console.log ('Succeeded connected to: ' + uristring);
+  }
+});
+
 mongoose.connection.once("open", function() {
 
   // Load models
