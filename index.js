@@ -23,10 +23,6 @@ app.use(function(req, res, next) {
   next();
 });
 
-// Openshift configuration
-var server_port = process.env.OPENSHIFT_NODEJS_PORT || 8080;
-var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
-
 // MongoDB Connection
 var uristring = process.env.MONGODB_URI || "mongodb://wilder:wilder123@ds027175.mlab.com:27175/zeustv";
 
@@ -48,8 +44,7 @@ mongoose.connection.once("open", function() {
   app.use("/users", users);
   app.use("/login", login);
 
-  //console.log("Listening to PORT 3000");
-  app.listen(server_port, server_ip_address);
-  console.log("Listening to PORT " + server_port + " on " + server_ip_address + '.');
+  console.log("Listening to PORT 3000");
+  app.listen(3000);
 
 });
