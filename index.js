@@ -9,7 +9,7 @@ var app           = express();
 var serviceOrders = require("./routes/serviceOrders");
 var users         = require("./routes/users");
 var login         = require("./routes/login");
-var client        = require("./routes/client");
+var client        = require("./routes/clients");
 
 // Middleware
 app.use(bodyParser.urlencoded({extended: true}));
