@@ -9,6 +9,7 @@ var app           = express();
 var serviceOrders = require("./routes/serviceOrders");
 var users         = require("./routes/users");
 var login         = require("./routes/login");
+var client        = require("./routes/client");
 
 // Middleware
 app.use(bodyParser.urlencoded({extended: true}));
@@ -43,6 +44,7 @@ mongoose.connection.once("open", function() {
   app.use("/serviceorders", serviceOrders);
   app.use("/users", users);
   app.use("/login", login);
+  app.use("/clients", client);
 
   console.log("Listening to PORT 3000");
   app.listen(3000);

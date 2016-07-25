@@ -1,5 +1,4 @@
 var mongoose     = require("mongoose");
-var ClientSchema = require("./Client").model("client").schema;
 
 var ServiceOrderSchema = new mongoose.Schema({
   number:             { type: Number, required: true, index: { unique: true } },
@@ -10,7 +9,7 @@ var ServiceOrderSchema = new mongoose.Schema({
   tvPackage:          { type: String, required: true},
   serviceType:        { type: String, required: true },
   serviceDescription: { type: String, required: true },
-  client:             [ClientSchema]
+  client:             [{ type: mongoose.Schema.Types.ObjectId, ref: "Client" }]
 });
 
 module.exports = mongoose.model("serviceOrder", ServiceOrderSchema);
