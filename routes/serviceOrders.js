@@ -72,7 +72,8 @@ router.put("/:id", function(req, res){
         return res.sendStatus(404);
       } else {
         // Update info
-        serviceOrder.status = req.body.status;
+        serviceOrder.comment = req.body.comment;
+        serviceOrder.status  = req.body.status;
         // Save updated info
         serviceOrder.save(function(err){
           if(err){

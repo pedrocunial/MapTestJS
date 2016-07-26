@@ -9,6 +9,7 @@ var ServiceOrderSchema = new mongoose.Schema({
   tvPackage:          { type: String, required: true},
   serviceType:        { type: String, required: true },
   serviceDescription: { type: String, required: true },
+  comment:            { type: String },
   client:             [{ type: mongoose.Schema.Types.ObjectId, ref: "Client" }]
 });
 
