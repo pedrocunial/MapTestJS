@@ -2,14 +2,12 @@ var express      = require("express");
 var router       = express.Router();
 
 var ServiceOrder = require("../models/ServiceOrder");
-var Client       = require("../models/Client");
 
 router.post('/', function(req, res){
 
   var serviceOrder = new ServiceOrder();
   var client       = new Client();
 
-  // Service Order
   serviceOrder.number             = req.body.number;
   serviceOrder.scheduledTo        = req.body.scheduledTo;
   serviceOrder.dayPeriod          = req.body.dayPeriod;
