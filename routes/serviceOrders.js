@@ -16,6 +16,7 @@ router.post('/', function(req, res){
   serviceOrder.serviceType        = req.body.serviceType;
   serviceOrder.serviceDescription = req.body.serviceDescription;
   serviceOrder.client             = req.body.client;
+  serviceOrder.address            = req.body.address;
 
   serviceOrder.save(function(err){
     if(err) {

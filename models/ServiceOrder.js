@@ -5,7 +5,7 @@ var ServiceOrderSchema = new mongoose.Schema({
   createdAt:          { type: Date, default: Date.now },
   scheduledTo:        { type: Date, required: true, min: Date.now },
   dayPeriod:          { type: String, required: true },
-  status:             { type: String, required: true, default: "Open" },
+  status:             { type: String, required: true, default: "Pendente" },
   tvPackage:          { type: String, required: true},
   serviceType:        { type: String, required: true },
   serviceDescription: { type: String, required: true },
