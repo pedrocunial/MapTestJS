@@ -6,7 +6,6 @@ var ServiceOrder = require("../models/ServiceOrder");
 router.post('/', function(req, res){
 
   var serviceOrder = new ServiceOrder();
-  var client       = new Client();
 
   serviceOrder.number             = req.body.number;
   serviceOrder.scheduledTo        = req.body.scheduledTo;
