@@ -3,7 +3,7 @@ var mongoose     = require("mongoose");
 var ServiceOrderSchema = new mongoose.Schema({
   number:             { type: Number, required: true, index: { unique: true } },
   createdAt:          { type: Date, default: Date.now },
-  scheduledTo:        { type: Date, required: true, min: Date.now },
+  scheduledTo:        { type: Date, required: true },
   dayPeriod:          { type: String, required: true },
   status:             { type: String, required: true, default: "Pendente" },
   tvPackage:          { type: String, required: true},
