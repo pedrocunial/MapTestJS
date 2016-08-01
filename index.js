@@ -41,6 +41,6 @@ mongoose.connection.once("open", function() {
   app.use("/login", login);
 
   console.log("Listening to PORT " + port + " on " + ipAddress + '.');
-  app.listen(port, idAdress);
+  app.listen(port, ipAddress);
 
 });
