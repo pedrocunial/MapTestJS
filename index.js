@@ -1,4 +1,3 @@
-// Dependencies
 var express        = require("express");
 var mongoose       = require("mongoose");
 var bodyParser     = require("body-parser");
@@ -20,6 +19,9 @@ app.use(function(req, res, next) {
   next();
 });
 
+var ipAddress = process.env.OPESHIFT_NODEJS_IP   || "127.0.0.1";
+var port      = process.env.OPESHIFT_NODEJS_PORT || "8080";
+
 var uristring = process.env.MONGODB_URI || "mongodb://wilder:wilder123@ds027175.mlab.com:27175/zeustv";
 
 mongoose.connect(uristring, function (err, res) {
@@ -38,7 +40,7 @@ mongoose.connection.once("open", function() {
   app.use("/users", users);
   app.use("/login", login);
 
-  console.log("Listening to PORT 3000");
-  app.listen(3000);
+  console.log("Listening to PORT " + port + " on " + ipAddress + '.');
+  app.listen(port, idAdress);
 
 });
