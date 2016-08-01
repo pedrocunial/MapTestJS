@@ -19,8 +19,8 @@ app.use(function(req, res, next) {
   next();
 });
 
-var ipAddress = process.env.OPESHIFT_NODEJS_IP   || "127.0.0.1";
-var port      = process.env.OPESHIFT_NODEJS_PORT || "8080";
+var ipAddress = process.env.OPENSHIFT_NODEJS_IP   || "127.0.0.1";
+var port      = process.env.PENSHIFT_NODEJS_PORT || "8080";
 
 var uristring = process.env.MONGODB_URI || "mongodb://wilder:wilder123@ds027175.mlab.com:27175/zeustv";
 
