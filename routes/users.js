@@ -18,7 +18,7 @@ router.post('/', function(req,res){
 
 router.get("/:username", function(req, res){
 
-  var username = req.params.usernae;
+  var username = req.params.username;
 
   User.find({"username": username}, function(err, user){
     if (err) {
