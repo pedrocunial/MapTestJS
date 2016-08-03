@@ -16,4 +16,22 @@ router.post('/', function(req,res){
   });
 });
 
+router.get("/:username", function(req, res){
+
+  var username = req.params.usernae;
+
+  User.find({"username": username}, function(err, user){
+    if (err) {
+      return res.status(500).json({"error": true, "message": err});
+    } else {
+      if (!user){
+        return res.sendStatus(404);
+      } else {
+        return res.status(200).json({"firstname": user.firstname, "lastname": user.lastname});
+      }
+    }
+  });
+
+});
+
 module.exports = router;
