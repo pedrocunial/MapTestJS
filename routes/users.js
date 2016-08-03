@@ -20,7 +20,7 @@ router.get("/:username", function(req, res){
 
   var username = req.params.username;
 
-  User.find({"username": username}, function(err, user){
+  User.findOne({"username": username}, function(err, user){
     if (err) {
       return res.status(500).json({"error": true, "message": err});
     } else {
